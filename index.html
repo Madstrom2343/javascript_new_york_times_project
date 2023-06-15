@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>NYT API</title>
+    <link rel="stylesheet" href="css/nyt.css">
+    <script defer src="js/nyt.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 text-center mt-3">
+                <img id="logo" src="images/logo.png" alt="NewYorkTimes">
+                <p class="mt-5">Please Select a Category:</p>
+            </div>
+
+            <div class=" col-12  text-center mt-2">
+
+
+
+                <select id="section">
+                    <option value="home">Home</option>
+                    <option value="arts">Arts</option>
+                    <option value="business">Business</option>
+                    <option value="dining">Dining</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="health">Health</option>
+                    <option value="magazine">Magazine</option>
+                    <option value="nyregion">NY Region</option>
+                    <option value="national">National</option>
+                    <option value="opinion">Opinion</option>
+                    <option value="politics">Politics</option>
+                    <option value="realestate">Real Estate</option>
+                    <option value="science">Science</option>
+                    <option value="sports">Sports</option>
+                    <option value="technology">Technology</option>
+                    <option value="world">World</option>
+                </select>
+
+                <button id="refresh">Refresh</button>
+
+                <div class="mt- col-12 d-flex justify-content-center flex-wrap gap-3" id="stories"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

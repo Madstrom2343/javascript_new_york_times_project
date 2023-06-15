@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API Key</title>
+</head>
+
+<body>
+    <select id="section"></select>
+    <script>
+        const api_key = '9Vm9TxP5zPDi4klcoNFNVktH5RGN2l10' // the home is what to change
+        const url = "http://api.nytimes.com/svc/news/v3/content/section-list.json?api-key=" + api_key
+        const select = document.querySelector('#section')
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                if (data.status == "OK") {
+                    console.log(data)
+                    data.results.forEach(function (section) {
+                        let option = document.createElement('option')
+                        option.setAttribute('value', section.section)
+                        option.innerText = section.display_name
+                        select.appendChild(option)
+                    })
+                } else {
+                    alert('Oh poop. Something is not right with your API key.')
+                }
+            })
+
+        select.addEventListener('change', function () {
+            // alert(select.value)
+            const urlNew = "http://api.nytimes.com/svc/topstories/v2/" + select.value + ".json?api-key=" + api_key
+            fetch(urlNew)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                })
+        })
+
+        const urlhome = "http://api.nytimes.com/svc/topstories/v2/home.json?api-key=" + api_key
+        fetch(urlhome)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+    </script>
+</body>
+
+</html>
